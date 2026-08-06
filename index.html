@@ -3,204 +3,1286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Марина Песляк — кандидат в Законодательное Собрание</title>
+    <title>Марина Песляк — кандидат в Законодательное Собрание Санкт-Петербурга</title>
+    <meta name="description" content="Марина Песляк — кандидат в депутаты Законодательного Собрания Санкт-Петербурга. Выборы 2026. Ваш голос в городе, который мы любим.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --ink: #13231a;
+            --forest: #1c3a27;
+            --forest-2: #2a5237;
+            --cream: #f7f3ea;
+            --cream-2: #efe9db;
+            --gold: #d9a441;
+            --gold-2: #c08a2d;
+            --white: #ffffff;
+            --muted: #5f6f63;
+            --radius: 20px;
+            --shadow: 0 20px 50px -20px rgba(19, 35, 26, 0.35);
+            --ease: cubic-bezier(.22, .8, .24, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Robota, Arial, sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            background: #fafafa;
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.65;
+            color: var(--ink);
+            background: var(--cream);
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 960px;
+            max-width: 1120px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Hero */
+        h1, h2, h3 {
+            font-family: 'Unbounded', sans-serif;
+            line-height: 1.2;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        section {
+            scroll-margin-top: 90px;
+        }
+
+        /* ---------- Nav ---------- */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            transition: background 0.3s var(--ease), box-shadow 0.3s var(--ease), backdrop-filter 0.3s var(--ease);
+        }
+
+        .nav.scrolled {
+            background: rgba(19, 35, 26, 0.92);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .nav-logo .mono {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-2));
+            color: var(--ink);
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 800;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 18px rgba(217, 164, 65, 0.4);
+            transition: transform 0.3s var(--ease);
+        }
+
+        .nav-logo:hover .mono {
+            transform: rotate(-8deg) scale(1.05);
+        }
+
+        .nav-logo span:last-child {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.2s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 2px;
+            transition: width 0.3s var(--ease);
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-socials {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-socials a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: background 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.25s var(--ease);
+        }
+
+        .nav-socials a svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .nav-socials a:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--ink);
+            transform: translateY(-2px);
+        }
+
+        .nav-burger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .nav-burger span {
+            width: 18px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: transform 0.3s var(--ease), opacity 0.3s;
+        }
+
+        body.menu-open .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        body.menu-open .nav-burger span:nth-child(2) { opacity: 0; }
+        body.menu-open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* ---------- Hero ---------- */
         .hero {
-            background: linear-gradient(135deg, #3d4f1e 0%, #5c6b32 100%);
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 0 90px;
+            color: var(--white);
+            background:
+                radial-gradient(900px 500px at 85% -10%, rgba(217, 164, 65, 0.16), transparent 60%),
+                radial-gradient(700px 500px at -10% 110%, rgba(42, 82, 55, 0.5), transparent 60%),
+                linear-gradient(160deg, #101f16 0%, #1c3a27 55%, #24492f 100%);
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
+            background: rgba(217, 164, 65, 0.12);
+            border: 1px solid rgba(217, 164, 65, 0.35);
+            padding: 8px 16px;
+            border-radius: 100px;
+            margin-bottom: 28px;
+        }
+
+        .hero-kicker::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold);
+            animation: pulse 2s infinite;
         }
 
         .hero h1 {
-            font-size: 2.8em;
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: 0.01em;
+        }
+
+        .hero h1 .accent {
+            background: linear-gradient(100deg, var(--gold), #f0c86e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-sub {
+            font-size: clamp(1.05rem, 2vw, 1.3rem);
+            font-weight: 600;
+            opacity: 0.92;
             margin-bottom: 10px;
-            letter-spacing: 0.02em;
         }
 
-        .hero p {
-            font-size: 1.3em;
-            opacity: 0.9;
+        .hero-tagline {
+            font-size: 1.05rem;
+            opacity: 0.75;
+            margin-bottom: 34px;
+            max-width: 460px;
         }
 
-        .hero .tagline {
-            margin-top: 20px;
-            font-size: 1.1em;
-            opacity: 0.8;
-        }
-
-        /* Sections */
-        section {
-            padding: 60px 0;
-        }
-
-        section:nth-child(even) {
-            background: #fff;
-        }
-
-        h2 {
-            font-size: 2em;
-            margin-bottom: 30px;
-            color: #4a5d23;
-        }
-
-        /* About */
-        .about p {
-            font-size: 1.1em;
-            margin-bottom: 16px;
-        }
-
-        /* Platform */
-        .platform-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 24px;
-        }
-
-        .platform-card {
-            background: #f0ebe0;
-            border-radius: 12px;
-            padding: 28px;
-        }
-
-        .platform-card h3 {
-            color: #4a5d23;
-            margin-bottom: 10px;
-            font-size: 1.15em;
-        }
-
-        .platform-card p {
-            color: #444;
-            font-size: 0.95em;
-        }
-
-        /* Bio */
-        .bio p {
-            margin-bottom: 12px;
-        }
-
-        /* Support */
-        .support {
-            text-align: center;
-        }
-
-        .support p {
-            margin-bottom: 16px;
-            font-size: 1.1em;
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 34px;
         }
 
         .btn {
-            display: inline-block;
-            padding: 14px 40px;
-            background: #4a5d23;
-            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 32px;
+            border-radius: 14px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 1.1em;
-            font-weight: 600;
-            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -80%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.6s var(--ease);
+        }
+
+        .btn:hover::before {
+            left: 130%;
         }
 
         .btn:hover {
-            background: #6b7b3a;
+            transform: translateY(-3px);
         }
 
-        /* Contacts */
-        .contacts {
-            text-align: center;
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), var(--gold-2));
+            color: var(--ink);
+            box-shadow: 0 12px 30px -10px rgba(217, 164, 65, 0.6);
         }
 
-        .contacts a {
-            color: #4a5d23;
-            text-decoration: none;
+        .btn-gold:hover {
+            box-shadow: 0 18px 40px -12px rgba(217, 164, 65, 0.7);
         }
 
-        .contacts a:hover {
-            text-decoration: underline;
+        .btn-ghost {
+            background: transparent;
+            color: var(--white);
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
         }
 
-        .social-links {
-            margin-top: 16px;
+        .btn-ghost:hover {
+            border-color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .hero-socials {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-socials a {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s var(--ease);
+        }
+
+        .hero-socials a svg {
+            width: 21px;
+            height: 21px;
+            fill: currentColor;
+        }
+
+        .hero-socials a:hover {
+            background: var(--white);
+            color: var(--ink);
+            border-color: var(--white);
+            transform: translateY(-4px) rotate(6deg);
+        }
+
+        /* Hero photo */
+        .hero-photo-wrap {
+            position: relative;
             display: flex;
             justify-content: center;
-            gap: 20px;
         }
 
-        /* Footer */
-        footer {
-            background: #4a5d23;
-            color: rgba(255,255,255,0.7);
+        .hero-photo {
+            position: relative;
+            width: min(380px, 78vw);
+            height: min(470px, 95vw);
+            border-radius: 999px 999px 26px 26px;
+            overflow: hidden;
+            border: 4px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.6);
+            animation: float 7s ease-in-out infinite;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform 0.8s var(--ease);
+        }
+
+        .hero-photo:hover img {
+            transform: scale(1.05);
+        }
+
+        .hero-photo-ring {
+            position: absolute;
+            inset: -26px;
+            border: 2px dashed rgba(217, 164, 65, 0.45);
+            border-radius: 999px 999px 60px 60px;
+            animation: spin 50s linear infinite;
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 14px;
+            padding: 10px 16px;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.4);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-badge svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--gold);
+        }
+
+        .hero-badge.b1 {
+            top: 60px;
+            left: -40px;
+            animation-delay: 0.5s;
+        }
+
+        .hero-badge.b2 {
+            bottom: 90px;
+            right: -30px;
+            animation-delay: 1.2s;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 26px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            width: 26px;
+            height: 42px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+        }
+
+        .hero-scroll::before {
+            content: '';
+            position: absolute;
+            top: 7px;
+            left: 50%;
+            width: 4px;
+            height: 8px;
+            margin-left: -2px;
+            border-radius: 4px;
+            background: var(--gold);
+            animation: scrollHint 1.8s infinite;
+        }
+
+        /* ---------- Ticker ---------- */
+        .ticker {
+            background: var(--gold);
+            color: var(--ink);
+            overflow: hidden;
+            padding: 14px 0;
+            position: relative;
+        }
+
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            animation: ticker 30s linear infinite;
+        }
+
+        .ticker-track span {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            white-space: nowrap;
+            padding: 0 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ticker-track span::before {
+            content: '◆';
+            font-size: 9px;
+        }
+
+        /* ---------- Sections ---------- */
+        section.block {
+            padding: 96px 0;
+        }
+
+        .kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold-2);
+            margin-bottom: 16px;
+        }
+
+        .kicker::before {
+            content: '';
+            width: 34px;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        h2 {
+            font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .section-lead {
+            max-width: 640px;
+            color: var(--muted);
+            font-size: 1.05rem;
+            margin-bottom: 48px;
+        }
+
+        /* ---------- About ---------- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-photo {
+            position: relative;
+        }
+
+        .about-photo::before {
+            content: '';
+            position: absolute;
+            inset: -18px auto auto -18px;
+            width: 120px;
+            height: 120px;
+            border-radius: 26px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-2));
+            opacity: 0.85;
+            z-index: 0;
+        }
+
+        .about-photo img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.6s var(--ease);
+        }
+
+        .about-photo:hover img {
+            transform: translateY(-6px) rotate(-1deg);
+        }
+
+        .about-text p {
+            margin-bottom: 16px;
+            font-size: 1.06rem;
+        }
+
+        .about-text p strong {
+            color: var(--forest);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-top: 38px;
+        }
+
+        .stat {
+            background: var(--white);
+            border: 1px solid rgba(19, 35, 26, 0.07);
+            border-radius: 16px;
+            padding: 20px 14px;
             text-align: center;
-            padding: 20px 0;
-            font-size: 0.85em;
+            box-shadow: 0 10px 30px -18px rgba(19, 35, 26, 0.25);
+            transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
         }
 
-        /* Mobile */
+        .stat:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 40px -20px rgba(19, 35, 26, 0.35);
+        }
+
+        .stat b {
+            display: block;
+            font-family: 'Unbounded', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--forest);
+            line-height: 1.1;
+        }
+
+        .stat span {
+            display: block;
+            margin-top: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
+        /* ---------- Platform ---------- */
+        .platform-section {
+            background: var(--white);
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .platform-card {
+            background: var(--cream);
+            border: 1px solid rgba(19, 35, 26, 0.06);
+            border-radius: var(--radius);
+            padding: 30px 26px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s;
+        }
+
+        .platform-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            opacity: 0;
+            transition: opacity 0.35s;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+            border-color: rgba(217, 164, 65, 0.35);
+        }
+
+        .platform-card:hover::before {
+            opacity: 1;
+        }
+
+        .platform-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--forest), var(--forest-2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: transform 0.35s var(--ease);
+        }
+
+        .platform-icon svg {
+            width: 26px;
+            height: 26px;
+            fill: var(--gold);
+        }
+
+        .platform-card:hover .platform-icon {
+            transform: rotate(-8deg) scale(1.08);
+        }
+
+        .platform-card h3 {
+            font-size: 1.02rem;
+            margin-bottom: 10px;
+            color: var(--forest);
+        }
+
+        .platform-card p {
+            font-size: 0.92rem;
+            color: var(--muted);
+        }
+
+        /* ---------- Bio timeline ---------- */
+        .timeline {
+            position: relative;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 14px;
+            width: 3px;
+            border-radius: 3px;
+            background: linear-gradient(180deg, var(--gold), var(--forest), var(--gold));
+            opacity: 0.5;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 0 0 42px 56px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            width: 31px;
+            height: 31px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timeline-dot::after {
+            content: '';
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--gold);
+            animation: pulse 2.5s infinite;
+        }
+
+        .timeline-year {
+            display: inline-block;
+            font-family: 'Unbounded', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gold-2);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.1rem;
+            color: var(--forest);
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+            font-size: 0.97rem;
+        }
+
+        .timeline-item p + p {
+            margin-top: 8px;
+        }
+
+        /* ---------- Gallery ---------- */
+        .gallery-section {
+            background: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 26px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            box-shadow: var(--shadow);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s var(--ease);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 55%, rgba(16, 31, 22, 0.75));
+            opacity: 0.7;
+            transition: opacity 0.4s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.07);
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            left: 22px;
+            right: 22px;
+            bottom: 18px;
+            z-index: 2;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1rem;
+            transform: translateY(6px);
+            opacity: 0.85;
+            transition: transform 0.4s var(--ease), opacity 0.4s;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ---------- Support ---------- */
+        .support-section {
+            background:
+                radial-gradient(800px 400px at 15% 0%, rgba(217, 164, 65, 0.12), transparent 60%),
+                linear-gradient(160deg, #13231a 0%, #1c3a27 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .support-section h2 {
+            margin-bottom: 16px;
+        }
+
+        .support-section .section-lead {
+            margin-left: auto;
+            margin-right: auto;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .support-btn {
+            margin-top: 8px;
+        }
+
+        /* ---------- Contacts ---------- */
+        .contacts-section {
+            text-align: center;
+        }
+
+        .contact-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--white);
+            border: 1px solid rgba(19, 35, 26, 0.08);
+            border-radius: 16px;
+            padding: 18px 30px;
+            box-shadow: 0 14px 40px -22px rgba(19, 35, 26, 0.3);
+            text-decoration: none;
+            color: var(--ink);
+            transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px -22px rgba(19, 35, 26, 0.4);
+        }
+
+        .contact-card .icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--forest), var(--forest-2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+        }
+
+        .contact-card .icon svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        .contact-card b {
+            display: block;
+            font-size: 15px;
+        }
+
+        .contact-card span {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            background: #0e1b13;
+            color: rgba(255, 255, 255, 0.55);
+            padding: 34px 0;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        footer .footer-socials {
+            display: flex;
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        footer .footer-socials a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.75);
+            transition: all 0.3s var(--ease);
+        }
+
+        footer .footer-socials a svg {
+            width: 17px;
+            height: 17px;
+            fill: currentColor;
+        }
+
+        footer .footer-socials a:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--ink);
+            transform: translateY(-3px);
+        }
+
+        /* ---------- Reveal animations ---------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(34px);
+            transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal[data-delay="1"] { transition-delay: 0.1s; }
+        .reveal[data-delay="2"] { transition-delay: 0.2s; }
+        .reveal[data-delay="3"] { transition-delay: 0.3s; }
+        .reveal[data-delay="4"] { transition-delay: 0.4s; }
+
+        .hero .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 0.9s var(--ease) forwards;
+        }
+
+        .hero .reveal[data-delay="1"] { animation-delay: 0.15s; }
+        .hero .reveal[data-delay="2"] { animation-delay: 0.3s; }
+        .hero .reveal[data-delay="3"] { animation-delay: 0.45s; }
+        .hero .reveal[data-delay="4"] { animation-delay: 0.6s; }
+        .hero .reveal[data-delay="5"] { animation-delay: 0.75s; }
+
+        /* ---------- Keyframes ---------- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-14px); }
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        @keyframes scrollHint {
+            0% { opacity: 0; transform: translateY(0); }
+            30% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(16px); }
+        }
+
+        @keyframes ticker {
+            to { transform: translateX(-50%); }
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 980px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+
+            .hero-tagline {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-cta, .hero-socials {
+                justify-content: center;
+            }
+
+            .hero-badge.b1 { left: 4%; }
+            .hero-badge.b2 { right: 4%; }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 46px;
+            }
+
+            .platform-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links, .nav-socials {
+                display: none;
+            }
+
+            .nav-burger {
+                display: flex;
+            }
+
+            .nav-links.mobile-open {
+                display: flex;
+                position: fixed;
+                top: 74px;
+                left: 12px;
+                right: 12px;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                background: rgba(19, 35, 26, 0.97);
+                backdrop-filter: blur(16px);
+                border-radius: 18px;
+                padding: 12px;
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+                animation: fadeUp 0.35s var(--ease);
+            }
+
+            .nav-links.mobile-open a {
+                padding: 14px 18px;
+                border-radius: 12px;
+                font-size: 15px;
+            }
+
+            .nav-links.mobile-open a:hover {
+                background: rgba(255, 255, 255, 0.08);
+            }
+        }
+
         @media (max-width: 640px) {
-            .hero h1 { font-size: 2em; }
-            .hero { padding: 50px 20px; }
-            section { padding: 40px 0; }
+            section.block {
+                padding: 70px 0;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                padding-left: 48px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal, .hero .reveal {
+                opacity: 1;
+                transform: none;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Hero -->
-    <header class="hero">
-        <div class="container">
-            <h1>Марина Песляк</h1>
-            <p>Кандидат в Законодательное Собрание</p>
-            <div class="tagline">Ваш голос в городе, который мы любим</div>
+    <!-- Nav -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#top" class="nav-logo">
+                <span class="mono">МП</span>
+                <span>Марина Песляк</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">О кандидате</a></li>
+                <li><a href="#platform">Программа</a></li>
+                <li><a href="#bio">Биография</a></li>
+                <li><a href="#gallery">Фото</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+            <div class="nav-socials">
+                <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+                <a href="#" aria-label="VK"><svg viewBox="0 0 24 24"><path d="m9.489.004.729-.003h3.564l.73.003.914.01.433.007.418.011.403.014.388.016.374.021.36.025.345.03.333.033c1.74.196 2.933.616 3.833 1.516.9.9 1.32 2.092 1.516 3.833l.034.333.029.346.025.36.02.373.025.588.012.41.013.644.009.915.004.98-.001 3.313-.003.73-.01.914-.007.433-.011.418-.014.403-.016.388-.021.374-.025.36-.03.345-.033.333c-.196 1.74-.616 2.933-1.516 3.833-.9.9-2.092 1.32-3.833 1.516l-.333.034-.346.029-.36.025-.373.02-.588.025-.41.012-.644.013-.915.009-.98.004-3.313-.001-.73-.003-.914-.01-.433-.007-.418-.011-.403-.014-.388-.016-.374-.021-.36-.025-.345-.03-.333-.033c-1.74-.196-2.933-.616-3.833-1.516-.9-.9-1.32-2.092-1.516-3.833l-.034-.333-.029-.346-.025-.36-.02-.373-.025-.588-.012-.41-.013-.644-.009-.915-.004-.98.001-3.313.003-.73.01-.914.007-.433.011-.418.014-.403.016-.388.021-.374.025-.36.03-.345.033-.333c.196-1.74.616-2.933 1.516-3.833.9-.9 2.092-1.32 3.833-1.516l.333-.034.346-.029.36-.025.373-.02.588-.025.41-.012.644-.013.915-.009ZM6.79 7.3H4.05c.13 6.24 3.25 9.99 8.72 9.99h.31v-3.57c2.01.2 3.53 1.67 4.14 3.57h2.84c-.78-2.84-2.83-4.41-4.11-5.01 1.28-.74 3.08-2.54 3.51-4.98h-2.58c-.56 1.98-2.22 3.78-3.8 3.95V7.3H10.5v6.92c-1.6-.4-3.62-2.34-3.71-6.92Z"/></svg></a>
+                <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a>
+            </div>
+            <button class="nav-burger" id="navBurger" aria-label="Меню" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero" id="top">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <div class="hero-kicker reveal">Выборы 2026 · Законодательное Собрание Санкт-Петербурга</div>
+                    <h1 class="reveal" data-delay="1">Марина <span class="accent">Песляк</span></h1>
+                    <p class="hero-sub reveal" data-delay="2">Кандидат в депутаты Законодательного Собрания</p>
+                    <p class="hero-tagline reveal" data-delay="3">Ваш голос в городе, который мы любим. Молодой политик, волонтёр и правозащитница — для петербуржцев, которые хотят реальных перемен.</p>
+                    <div class="hero-cta reveal" data-delay="4">
+                        <a class="btn btn-gold" href="#support">Поддержать кампанию</a>
+                        <a class="btn btn-ghost" href="#platform">Программа</a>
+                    </div>
+                    <div class="hero-socials reveal" data-delay="5">
+                        <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+                        <a href="#" aria-label="VK"><svg viewBox="0 0 24 24"><path d="m9.489.004.729-.003h3.564l.73.003.914.01.433.007.418.011.403.014.388.016.374.021.36.025.345.03.333.033c1.74.196 2.933.616 3.833 1.516.9.9 1.32 2.092 1.516 3.833l.034.333.029.346.025.36.02.373.025.588.012.41.013.644.009.915.004.98-.001 3.313-.003.73-.01.914-.007.433-.011.418-.014.403-.016.388-.021.374-.025.36-.03.345-.033.333c-.196 1.74-.616 2.933-1.516 3.833-.9.9-2.092 1.32-3.833 1.516l-.333.034-.346.029-.36.025-.373.02-.588.025-.41.012-.644.013-.915.009-.98.004-3.313-.001-.73-.003-.914-.01-.433-.007-.418-.011-.403-.014-.388-.016-.374-.021-.36-.025-.345-.03-.333-.033c-1.74-.196-2.933-.616-3.833-1.516-.9-.9-1.32-2.092-1.516-3.833l-.034-.333-.029-.346-.025-.36-.02-.373-.025-.588-.012-.41-.013-.644-.009-.915-.004-.98.001-3.313.003-.73.01-.914.007-.433.011-.418.014-.403.016-.388.021-.374.025-.36.03-.345.033-.333c.196-1.74.616-2.933 1.516-3.833.9-.9 2.092-1.32 3.833-1.516l.333-.034.346-.029.36-.025.373-.02.588-.025.41-.012.644-.013.915-.009ZM6.79 7.3H4.05c.13 6.24 3.25 9.99 8.72 9.99h.31v-3.57c2.01.2 3.53 1.67 4.14 3.57h2.84c-.78-2.84-2.83-4.41-4.11-5.01 1.28-.74 3.08-2.54 3.51-4.98h-2.58c-.56 1.98-2.22 3.78-3.8 3.95V7.3H10.5v6.92c-1.6-.4-3.62-2.34-3.71-6.92Z"/></svg></a>
+                        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a>
+                    </div>
+                </div>
+                <div class="hero-photo-wrap reveal" data-delay="2">
+                    <div class="hero-photo-ring"></div>
+                    <div class="hero-photo">
+                        <img src="img/hero.jpg" alt="Марина Песляк">
+                    </div>
+                    <div class="hero-badge b1">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+                        <span>300+ подписей собрано</span>
+                    </div>
+                    <div class="hero-badge b2">
+                        <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V5l-8-3zm0 10.5h5.5c-.67 4.03-2.89 7.7-5.5 9.06V12.5z"/></svg>
+                        <span>Член участковой комиссии</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll" aria-hidden="true"></div>
     </header>
 
+    <!-- Ticker -->
+    <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+            <span>Ваш голос в городе, который мы любим</span>
+            <span>Защита семьи, прав женщин и детей</span>
+            <span>Свободный интернет</span>
+            <span>300+ подписей собрано вручную</span>
+            <span>Выборы 2026 — Законодательное Собрание</span>
+            <span>Ваш голос в городе, который мы любим</span>
+            <span>Защита семьи, прав женщин и детей</span>
+            <span>Свободный интернет</span>
+            <span>300+ подписей собрано вручную</span>
+            <span>Выборы 2026 — Законодательное Собрание</span>
+        </div>
+    </div>
+
     <!-- About -->
-    <section class="about">
+    <section class="block about" id="about">
         <div class="container">
-            <h2>О кандидате</h2>
-            <p>Марина Песляк — активный общественный деятель и житель Санкт-Петербурга. Много лет занимается защитой прав жителей, вопросами городской среды и социальной справедливости.</p>
-            <p>Убеждена, что решения в городе должны приниматься открыто, с участием горожан и в интересах каждого петербуржца.</p>
+            <div class="about-grid">
+                <div class="about-photo reveal">
+                    <img src="img/about.jpg" alt="Марина Песляк — кандидат в Законодательное Собрание">
+                </div>
+                <div class="about-text reveal" data-delay="1">
+                    <div class="kicker">О кандидате</div>
+                    <h2>Молодой голос, который слышно</h2>
+                    <p><strong>Марина Денисовна Песляк</strong> родилась в Магадане в 2004 году. С 14 лет работала в продуктовом магазине и рыбоперерабатывающем цехе, стремясь доказать свою самостоятельность и независимость.</p>
+                    <p>В 17 лет переехала в Санкт-Петербург и поступила в Северо-Западную академию управления РАНХиГС при Президенте РФ на факультет международных отношений и политических исследований. Сейчас — на последнем курсе, пишет выпускной диплом и проходит практику в петербургском отделении одной из парламентских партий.</p>
+                    <p>С 2024 года — член участковой избирательной комиссии с правом решающего голоса, участница первой собственной кампании и автор сотен лично собранных подписей.</p>
+                    <div class="stats">
+                        <div class="stat reveal"><b data-count="300" data-suffix="+">0</b><span>Подписей собрано вручную</span></div>
+                        <div class="stat reveal" data-delay="1"><b data-count="3">0</b><span>Недели на сбор подписей</span></div>
+                        <div class="stat reveal" data-delay="2"><b data-count="14">0</b><span>Лет — возраст первой работы</span></div>
+                        <div class="stat reveal" data-delay="3"><b data-count="2">0</b><span>Избирательные кампании в 2024</span></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Platform -->
-    <section>
+    <section class="block platform-section" id="platform">
         <div class="container">
-            <h2>Программа</h2>
+            <div class="kicker reveal">Программа</div>
+            <h2 class="reveal">За что мы боремся</h2>
+            <p class="section-lead reveal">Петербуржцы устали от обещаний. Вот приоритеты, которые Марина будет отстаивать в Законодательном Собрании.</p>
             <div class="platform-grid">
-                <div class="platform-card">
+                <div class="platform-card reveal">
+                    <div class="platform-icon"><svg viewBox="0 0 24 24"><path d="M10 2v2.26A7.05 7.05 0 0 0 4.26 10H2v12h20V10h-2.26A7.05 7.05 0 0 0 14 4.26V2h-4zm8 10h4v2h-4v-2zm-12 0h4v2H6v-2zm-4 0h2v2H2v-2zm3 5h14v5H5v-5zm9-9.8c.98.32 1.79 1.06 2.24 1.97.07.16.14.32.19.48-.27-.02-5.36-.03-7.79.02.05-.17.12-.33.19-.5a4.01 4.01 0 0 1 2.24-1.96.5.5 0 0 1 .35 0 2.06 2.06 0 0 1 1.08.5 3 3 0 0 0 1.5-.51z"/></svg></div>
                     <h3>Комфортный город</h3>
-                    <p>Парки, дворы без ям, освещение, уборка — базовые вещи, за которые отвечает муниципальная власть, должны работать для людей.</p>
+                    <p>Парки, дворы без ям, освещение, уборка — базовые вещи, за которые отвечает власть, должны работать для людей.</p>
                 </div>
-                <div class="platform-card">
+                <div class="platform-card reveal" data-delay="1">
+                    <div class="platform-icon"><svg viewBox="0 0 24 24"><path d="M3 13h2v8H3v-8zm4-6h2v14H7V7zm4-5h2v19h-2V2zm4 8h2v11h-2V10zm4-3h2v14h-2V7z"/></svg></div>
                     <h3>Прозрачный бюджет</h3>
                     <p>Контроль за расходованием бюджетных средств и обязательная публичная отчётность депутатов перед избирателями.</p>
                 </div>
-                <div class="platform-card">
+                <div class="platform-card reveal" data-delay="2">
+                    <div class="platform-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35 10.55 20.03C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
                     <h3>Социальная защита</h3>
                     <p>Льготы, доступная медицина, поддержка многодетных семей и старшего поколения — приоритеты в работе депутата.</p>
                 </div>
-                <div class="platform-card">
+                <div class="platform-card reveal" data-delay="3">
+                    <div class="platform-icon"><svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg></div>
                     <h3>Экология</h3>
                     <p>Раздельный сбор отходов, сохранение зелёных зон, борьба с незаконными свалками и защита экологии района.</p>
                 </div>
@@ -209,40 +1291,172 @@
     </section>
 
     <!-- Bio -->
-    <section class="bio">
+    <section class="block bio" id="bio">
         <div class="container">
-            <h2>Биография</h2>
-            <p>Родилась и выросла в Санкт-Петербурге. Окончила Санкт-Петербургский государственный университет.</p>
-            <p>Работала в некоммерческих организациях, занималась правовым просвещением граждан, участвовала в общественных советах при районной администрации.</p>
-            <p>Неоднократно помогала жителям в решении проблем с ЖКХ, благоустройством и социальными выплатами.</p>
-        </div>
-    </section>
-
-    <!-- Support -->
-    <section class="support">
-        <div class="container">
-            <h2>Поддержать</h2>
-            <p>Подпишитесь на новости кампании или свяжитесь с нами, чтобы присоединиться к команде волонтёров.</p>
-            <a class="btn" href="mailto:peslyak@example.com">Написать Марине</a>
-        </div>
-    </section>
-
-    <!-- Contacts -->
-    <section class="contacts">
-        <div class="container">
-            <h2>Контакты</h2>
-            <p>Email: <a href="mailto:peslyak@example.com">peslyak@example.com</a></p>
-            <div class="social-links">
-                <a href="#">Telegram</a>
-                <a href="#">VK</a>
-                <a href="#">Instagram</a>
+            <div class="kicker reveal">Биография</div>
+            <h2 class="reveal">Путь до Законодательного Собрания</h2>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2004</div>
+                    <h3>Магадан — точка старта</h3>
+                    <p>Родилась в г. Магадане. Окончила гимназию и художественную школу.</p>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">С 14 лет</div>
+                    <h3>Самостоятельность с юных лет</h3>
+                    <p>С согласия родителей подрабатывала в продуктовом магазине и в рыбоперерабатывающем цеху, стремясь с юных лет доказать свою самостоятельность и независимость.</p>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">В 17 лет</div>
+                    <h3>Санкт-Петербург, РАНХиГС</h3>
+                    <p>Переехала в Санкт-Петербург и поступила в Северо-Западную академию управления РАНХиГС при Президенте РФ на факультет международных отношений и политических исследований. Обучается на последнем курсе.</p>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2024</div>
+                    <h3>Первая кампания — МО Нарвский</h3>
+                    <p>Баллотировалась в муниципальные депутаты, но по политическому решению ОИК не была допущена до бюллетеня — вместе со всей командой кандидатов. Горизбирком, районный суд и апелляция решения не поменяли.</p>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2024</div>
+                    <h3>300+ подписей за 3 недели</h3>
+                    <p>Собирала подписи за независимого кандидата в губернаторы Санкт-Петербурга, работала в офисе проверки и брошюровки подписных листов. Лично собрала более 300 подписей избирателей менее чем за 3 недели и была награждена благодарственным письмом.</p>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">С 2024 года</div>
+                    <h3>В сердце выборов и помощи людям</h3>
+                    <p>Действующий член участковой избирательной комиссии с правом решающего голоса — работала на выборах губернатора и муниципальных депутатов. Участвовала в точке сбора гуманитарной помощи для жителей Курской и Белгородской областей: одежда, еда, детские товары и предметы первой необходимости.</p>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2026</div>
+                    <h3>Сейчас</h3>
+                    <p>Пишет выпускной диплом и проходит практику в петербургском отделении одной из парламентских партий. Выступает за закон, криминализирующий домашнее насилие, защиту семьи, прав женщин и детей, зоозащиту и свободный интернет — против блокировок, «белых списков» и принудительной установки мессенджера «Макс».</p>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Gallery -->
+    <section class="block gallery-section" id="gallery">
+        <div class="container">
+            <div class="kicker reveal">Фото</div>
+            <h2 class="reveal">Кампания в лицах</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item reveal">
+                    <img src="img/campaign-1.jpg" alt="Марина Песляк во время кампании">
+                    <div class="gallery-caption">Работа на избирательной кампании</div>
+                </div>
+                <div class="gallery-item reveal" data-delay="1">
+                    <img src="img/campaign-2.jpg" alt="Марина Песляк во время кампании">
+                    <div class="gallery-caption">Марина на встрече с избирателями</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support -->
+    <section class="block support-section" id="support">
+        <div class="container">
+            <div class="kicker reveal" style="color: var(--gold);">Поддержать</div>
+            <h2 class="reveal">Каждый голос имеет значение</h2>
+            <p class="section-lead reveal">Подпишитесь на новости кампании или свяжитесь с нами, чтобы присоединиться к команде волонтёров. Мы всегда рады помощи — в сборе подписей, распространении информации и на избирательных участках.</p>
+            <a class="btn btn-gold support-btn reveal" data-delay="1" href="mailto:peslyak@example.com">Написать Марине</a>
+        </div>
+    </section>
+
+    <!-- Contacts -->
+    <section class="block contacts-section" id="contacts">
+        <div class="container">
+            <div class="kicker reveal">Контакты</div>
+            <h2 class="reveal">Свяжитесь с нами</h2>
+            <p class="section-lead reveal" style="margin-left:auto;margin-right:auto;">Вопросы, предложения, волонтёрство — пишите нам в любой момент.</p>
+            <a class="contact-card reveal" data-delay="1" href="mailto:peslyak@example.com">
+                <span class="icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
+                <span>
+                    <b>peslyak@example.com</b>
+                    <span>Ответим в течение 24 часов</span>
+                </span>
+            </a>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2026 — Марина Песляк | Кандидат в Законодательное Собрание Санкт-Петербурга</p>
+        <div class="container">
+            <p>&copy; 2026 — Марина Песляк | Кандидат в Законодательное Собрание Санкт-Петербурга</p>
+            <div class="footer-socials">
+                <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+                <a href="#" aria-label="VK"><svg viewBox="0 0 24 24"><path d="m9.489.004.729-.003h3.564l.73.003.914.01.433.007.418.011.403.014.388.016.374.021.36.025.345.03.333.033c1.74.196 2.933.616 3.833 1.516.9.9 1.32 2.092 1.516 3.833l.034.333.029.346.025.36.02.373.025.588.012.41.013.644.009.915.004.98-.001 3.313-.003.73-.01.914-.007.433-.011.418-.014.403-.016.388-.021.374-.025.36-.03.345-.033.333c-.196 1.74-.616 2.933-1.516 3.833-.9.9-2.092 1.32-3.833 1.516l-.333.034-.346.029-.36.025-.373.02-.588.025-.41.012-.644.013-.915.009-.98.004-3.313-.001-.73-.003-.914-.01-.433-.007-.418-.011-.403-.014-.388-.016-.374-.021-.36-.025-.345-.03-.333-.033c-1.74-.196-2.933-.616-3.833-1.516-.9-.9-1.32-2.092-1.516-3.833l-.034-.333-.029-.346-.025-.36-.02-.373-.025-.588-.012-.41-.013-.644-.009-.915-.004-.98.001-3.313.003-.73.01-.914.007-.433.011-.418.014-.403.016-.388.021-.374.025-.36.03-.345.033-.333c.196-1.74.616-2.933 1.516-3.833.9-.9 2.092-1.32 3.833-1.516l.333-.034.346-.029.36-.025.373-.02.588-.025.41-.012.644-.013.915-.009ZM6.79 7.3H4.05c.13 6.24 3.25 9.99 8.72 9.99h.31v-3.57c2.01.2 3.53 1.67 4.14 3.57h2.84c-.78-2.84-2.83-4.41-4.11-5.01 1.28-.74 3.08-2.54 3.51-4.98h-2.58c-.56 1.98-2.22 3.78-3.8 3.95V7.3H10.5v6.92c-1.6-.4-3.62-2.34-3.71-6.92Z"/></svg></a>
+                <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a>
+            </div>
+        </div>
     </footer>
 
+    <script>
+        const nav = document.getElementById('nav');
+        const onScroll = () => {
+            nav.classList.toggle('scrolled', window.scrollY > 40);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        const burger = document.getElementById('navBurger');
+        const navLinks = document.getElementById('navLinks');
+        burger.addEventListener('click', () => {
+            const open = document.body.classList.toggle('menu-open');
+            navLinks.classList.toggle('mobile-open', open);
+            burger.setAttribute('aria-expanded', open);
+        });
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                document.body.classList.remove('menu-open');
+                navLinks.classList.remove('mobile-open');
+                burger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const el = entry.target;
+                counterObserver.unobserve(el);
+                const target = parseInt(el.dataset.count, 10);
+                const suffix = el.dataset.suffix || '';
+                if (reduceMotion) {
+                    el.textContent = target + suffix;
+                    return;
+                }
+                const duration = 1400;
+                const start = performance.now();
+                const step = (now) => {
+                    const p = Math.min((now - start) / duration, 1);
+                    const eased = 1 - Math.pow(1 - p, 3);
+                    el.textContent = Math.round(target * eased) + suffix;
+                    if (p < 1) requestAnimationFrame(step);
+                };
+                requestAnimationFrame(step);
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat b[data-count]').forEach(el => counterObserver.observe(el));
+    </script>
 </body>
 </html>
