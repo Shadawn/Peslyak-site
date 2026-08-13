@@ -20,6 +20,14 @@ module.exports = function (eleventyConfig) {
     return dd + "." + mm + "." + d.getFullYear();
   });
 
+  // ISO-дата для sitemap.xml: yyyy-mm-dd
+  eleventyConfig.addFilter("isoDate", (date) => {
+    if (!date) return "";
+    const d = date instanceof Date ? date : new Date(date);
+    if (isNaN(d.getTime())) return "";
+    return d.toISOString().slice(0, 10);
+  });
+
   return {
     dir: {
       input: "src",

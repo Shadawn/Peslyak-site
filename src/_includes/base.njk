@@ -4,7 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if title %}{{ title }} — Марина Песляк{% else %}Марина Песляк — кандидат в Законодательное Собрание Санкт-Петербурга{% endif %}</title>
-  <meta name="description" content="Марина Песляк — кандидат в депутаты Законодательного Собрания Санкт-Петербурга от партии «Яблоко» по избирательному округу №6. Выборы 2026. Ваш голос в городе, который мы любим.">
+  <meta name="description" content="{{ description | default(site.description) }}">
+  <meta property="og:site_name" content="Марина Песляк">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:type" content="{% if image %}article{% else %}website{% endif %}">
+  <meta property="og:title" content="{% if title %}{{ title }} — Марина Песляк{% else %}Марина Песляк — кандидат в Законодательное Собрание Санкт-Петербурга{% endif %}">
+  <meta property="og:description" content="{{ description | default(site.description) }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}{{ image | default('/img/hero.jpg') }}">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
