@@ -2,6 +2,9 @@ module.exports = function (eleventyConfig) {
   // Копируем картинки как есть
   eleventyConfig.addPassthroughCopy("src/img");
 
+  // Показывать LAN-адреса в консоли dev-сервера (сайт доступен по сети)
+  eleventyConfig.setServerOptions({ showAllHosts: true });
+
   // Коллекция новостей, отсортированная от новых к старым
   eleventyConfig.addCollection("news", (collectionApi) =>
     collectionApi.getFilteredByTag("news").sort((a, b) => b.date - a.date)
