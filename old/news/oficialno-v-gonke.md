@@ -3,7 +3,7 @@ layout: post.njk
 title: 'Официально в гонке'
 date: '2026-08-20'
 description: 'Стартовал официальный этап кампании: в окружную избирательную комиссию поданы документы на регистрацию кандидатом в депутаты Законодательного Собрания Санкт-Петербурга.'
-image: 'https://peslyak.dickbank.ru/storage/posts/covers/01M0F4RPYKDB2A4C58DM3B2BZF.jpg'
+image: 'https://storage.yandexcloud.net/peslyak2026/news/images/01M0FACC8XTQB2DY54VN1QYBFE.jpg'
 tags:
   - news
 ---
