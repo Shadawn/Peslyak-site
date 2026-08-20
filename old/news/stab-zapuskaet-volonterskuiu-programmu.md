@@ -3,7 +3,7 @@ layout: post.njk
 title: 'Штаб запускает волонтёрскую программу'
 date: '2026-08-20'
 description: 'Присоединяйтесь к команде: нужны волонтёры для работы на встречах, сбора подписей и информационной поддержки кампании.'
-image: 'https://peslyak.dickbank.ru/storage/posts/covers/01M0F3JG0XM8HWVV0QV3W4W7MM.jpg'
+image: 'https://storage.yandexcloud.net/peslyak2026/news/images/posts/covers/01M0F3JG0XM8HWVV0QV3W4W7MM.jpg'
 tags:
   - news
 ---
