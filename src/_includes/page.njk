@@ -1,0 +1,19 @@
+---
+layout: base.njk
+---
+
+<header class="page-hero">
+  <div class="container">
+    <div class="kicker">{{ kicker | default('Кампания') }}</div>
+    <h1>{{ title }}</h1>
+    {% if description %}
+    <p class="section-lead">{{ description }}</p>
+    {% endif %}
+  </div>
+</header>
+
+<article class="block post">
+  <div class="container post-container">
+    <div class="post-body donate-body">{{ content | safe }}</div>
+  </div>
+</article>
